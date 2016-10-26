@@ -216,7 +216,7 @@ n4  <- net[ net$bad_loan == 1 & net$pred == 0, 3]
 
 ## Function defined to pretty print numerics as dollars
 printMoney <- function(x){
-  x <- round(x,2)
+  x <- round(abs(x),2)
   format(x, digits=10, nsmall=2, decimal.mark=".", big.mark=",")
 }
 
