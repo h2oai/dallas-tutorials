@@ -224,7 +224,8 @@ print "GLM AUC on training = " + str(glm_model.auc(train = True)) + " and GLM AU
 
 print "GBM AUC on training = " + str(gbm_model.auc(train = True)) + " and GBM AUC on validation = " + str(gbm_model.auc(valid = True))
 
-
+# Plot the GBM scoring history to make sure you're not overfitting
+gbm_model.plot()
 
 # GLM variable coefficients plot
 glm_model.std_coef_plot()
