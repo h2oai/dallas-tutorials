@@ -152,26 +152,6 @@ loans_by_year = grouped.count().sum("bad_loan").get_frame()
 loans_by_year_df = loans_by_year.as_data_frame(use_pandas = True)
 
 
-
-# Plot number of actual and predicted bad loans
-import matplotlib.pyplot as plt
-
-fig, ax = plt.subplots()
-width = 0.35 
-rects1 = ax.bar(loans_by_year_df["issue_d_year"] + width, loans_by_year_df["nrow_id"], width, color='b')
-rects2 = ax.bar(loans_by_year_df["issue_d_year"], loans_by_year_df["sum_bad_loan"], width, color='r')
-
-ax.set_ylabel('Number of Bad Loans')
-ax.set_xlabel('Year')
-
-ax.set_title('Bad Loans by Year')
-ax.set_xticks(loans_by_year_df["issue_d_year"] + width)
-ax.set_xticklabels(loans_by_year_df["issue_d_year"])
-
-ax.legend((rects1[0], rects2[0]), ('Total Loans', 'Total Bad Loans'))
-
-
-
 # Do a test-train split (80-20)
 s = loan_stats["int_rate"].runif()
 train = loan_stats[s <= 0.80]
