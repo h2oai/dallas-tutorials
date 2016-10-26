@@ -5,7 +5,7 @@ library(h2o)
 h2o.init(nthreads = -1)
 
 ## Define data paths
-loans_path = normalizePath("~/Desktop/H2OTOUR/Datasets/LoanStats/")
+loans_path = normalizePath("/Volumes/H2OTOUR/Datasets/LoanStats")
 
 ## Task 1: Import Data
 loan_stats <- h2o.importFile(path = loans_path, parse = F)
