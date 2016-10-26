@@ -16,9 +16,7 @@ h2o.init(nthreads = -1)
 
 
 #Set file path
-path = os.path.abspath("~/Desktop/H2OTour/Datasets/LoanStats/")
-
-
+path = "/Volumes/H2OTOUR/Datasets/LoanStats"
 
 #Parse with user imposed schema which changes the column types;
 #Change the column types in the parse setup
@@ -122,11 +120,6 @@ loan_stats["annual_inc_log"] = (loan_stats["annual_inc"] ==  0).ifelse(0, loan_s
 # Calculate the users' total available credit limit across all credit lines
 loan_stats["avail_credit"] = (loan_stats["revol_util"] == 0).ifelse(float('nan'), loan_stats["revol_bal"]/loan_stats["revol_util"])
 loan_stats["avail_credit_log"] = (loan_stats["avail_credit"] == 0).ifelse(0, loan_stats["avail_credit"].log())
-
-
-
-get_ipython().magic(u'matplotlib inline')
-loan_stats["avail_credit_log"].hist()
 
 
 
